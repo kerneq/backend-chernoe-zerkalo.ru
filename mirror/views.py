@@ -1,8 +1,9 @@
-from django.http import HttpResponse
+from django.core.validators import validate_email
+from django.forms import forms
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from mirror.models import season, seriesRus
+from mirror.models import season, seriesRus, subscribers
 
 
 def index(request):
@@ -20,3 +21,16 @@ def seasonView(request, num):
     return render(request, 'mirror/season.html', {'season': currentSeason,
                                                   'series': series,
                                                   'seasons': season.objects.all()})
+
+
+def subscribe(request):
+    if request.method == "POST":
+        try:
+            validate_email(request.POST.get("email", ""))
+            subscribers(email=request.POST['email']).save()
+            return index(request)
+        except forms.ValidationError:
+            return render(request, 'mirror/subscribe.html', {'error': 'неверно введен e-mail'})
+    else:
+        return render(request, 'mirror/subscription.html', {'error': None,
+                                                            'seasons': season.objects.all()})

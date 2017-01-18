@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Черное зеркало {{ season.number }} сезон</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'mirror/css/bootstrap.css' %}" rel="stylesheet">
@@ -80,7 +80,7 @@
                     <div class="col-md-10 col-md-offset-1" style="padding-left: 40px;
                                                                   padding-right: 35px;">
                         <H1 style="font-size: 28px; margin-bottom: 20px;">
-                            Черное зеркало: 1 сезон
+                            Черное зеркало: {{ season.number }} сезон
                         </H1>
                         <p style="color: #333;">
                             {{ season.description }}
@@ -125,7 +125,7 @@
               <div class="container">
                   <div class="row">
                       <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-6">
-                        <a class="btn btn-success btn-sm" href="#" role="button" style="position:relative; bottom: 9px; left: 25px;">Хочу узнавать о новых сериях</a>
+                        <a class="btn btn-success btn-sm" href="{% url 'mirror:subscribe' %}" role="button" style="position:relative; bottom: 9px; left: 25px;">Хочу узнавать о новых сериях</a>
                       </div>
                       <div class="col-md-3 col-md-offset-1 col-xs-12 col-sm-6">
                         <a class="btn btn-success btn-sm" href="#" role="button" style="position:relative; bottom: 9px; left: 25px;">Обратная связь</a>

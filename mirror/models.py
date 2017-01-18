@@ -40,3 +40,10 @@ class seriesEng(models.Model):
 
     def __str__(self):
         return self.name + " " + self.number + " series " + self.season + "season Eng"
+
+
+class subscribers(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
