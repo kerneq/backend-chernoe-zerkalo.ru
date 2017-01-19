@@ -157,6 +157,7 @@ mark {
     height: 110px;
     border: 3px solid #66AA33;
     display: inline-block;
+    background-size: cover;
     float: left;
     margin-left: 15px;
     margin-top: 20px;

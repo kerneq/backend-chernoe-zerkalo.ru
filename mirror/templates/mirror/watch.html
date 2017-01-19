@@ -83,7 +83,10 @@
                             <div class="col-lg-9 col-md-11 col-sm-12 col-xs-12">
                                 <H1>Черное зеркало {{ seasonNum }} сезон {{ seriesNum }} серия </H1>
                                 <div id="rekomendation">
-                                    На сайте chernoe-zerkalo.ru вы можете смотреть черное зеркало 3 сезон 10 серию в озвучке Кубрик-Кубрик, а также смотреть в оригинале на английском (есть субтитры)
+                                    На сайте chernoe-zerkalo.ru вы можете смотреть черное зеркало {{ seasonNum }}
+                                    сезон {{ seasonNum }} серию в озвучке Кубрик-Кубрик,
+                                    а также <a style="color: #99998f; text-decoration: underline" href="{% url 'mirror:watchEngl' seasonNum seriesNum %}">смотреть в оригинале</a>
+                                    на английском (есть субтитры)
                                 </div>
                             </div>
                         </div>
@@ -140,16 +143,27 @@
                                 <div class="player" id="videoplayer" style="height: auto;"></div>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <a href="#" style="color: #999;">
+                                        <a href="" style="color: #999;">
                                             <div id="prev-button" class="col-md-5 col-sm-5 col-xs-5" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
                                                 &#8592;&#160;&#160; Предыдущая серия
                                             </div>
                                         </a>
-                                        <a href="#" style="color: #999;">
-                                            <div id="prev-button" class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
-                                                Следующая серия &#160;&#160; &#8594;
-                                            </div>
-                                        </a>
+
+                                        {% if islastSeries == False %}
+                                            <a href="{% url 'mirror:watch' seasonNum nextNumSeries %}" style="color: #999;">
+                                                <div id="prev-button" class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
+                                                    Следующая серия &#160;&#160; &#8594;
+                                                </div>
+                                            </a>
+                                        {% else %}
+                                            {% if islastSeason == False %}
+                                                <a href="{% url 'mirror:watch' nextNumSeason 1 %}" style="color: #999;">
+                                                    <div id="prev-button" class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
+                                                        Следующий сезон &#160;&#160; &#8594;
+                                                    </div>
+                                                </a>
+                                            {% endif %}
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -161,13 +175,14 @@
                                 </div>
                             </div>
                         </div>
-                        <span style="color: #999; position: relative; top: 10px; font-size: 20px;">Всплеск (The Uptick)
+                        <span style="color: #999; position: relative; top: 10px; font-size: 20px;">
+                            {{ ses.name }} ({{ ses.nameEng }})
                         </span>
                         <br />
                         <div class="row">
                             <div class="col-lg-9 col-md-11 col-sm-12 col-xs-12">
                                 <span style="position: relative; top: 15px; color: #999;">
-                                    Финальная серия третьего сезона. Триумф Эрлиха ставит Ричарда в затруднительное положение. Видео чат Динеша набирает обороты. Лори собирается выйти из игры, возвращение Гевина в Hooli под угрозой из-за его напыщенности.
+                                    {{ ses.description }}
                                 </span>
                             </div>
                         </div>
@@ -200,12 +215,16 @@
                   <div style="clear: both;"></div>
                   <div class="col-md-10 col-md-offset-1 col-sm-10 col-xs-10" style="padding-left: 40px;
                                                               padding-right: 35px;">
-                      <H3 style="margin-bottom: 20px; margin-top: -5px;">1 сезон</H3>
+                      <H3 style="margin-bottom: 20px; margin-top: -5px;">Серии сезона</сезона></H3>
                       <div class="clear: both;"></div>
                       <div style="position:relative; right: 15px; bottom: 20px;">
                           {% for s in series %}
-                                <a href="hello">
-                                    <div style="background-image: url({% static ''%}/mirror/img/holder/{{s.season}}{{s.number}}.jpg);" class="icon-serie">
+                                <a href="{% url 'mirror:watch' seasonNum s.number %}">
+                                     {% if s.number == seriesNum %}
+                                        <div style="background-image: url({% static ''%}/mirror/img/holder/{{s.season}}{{s.number}}.jpg);" class="icon-serie-current">
+                                     {% else %}
+                                        <div style="background-image: url({% static ''%}/mirror/img/holder/{{s.season}}{{s.number}}.jpg);" class="icon-serie">
+                                     {% endif %}
                                         <div class="serie-name">
                                             <span class="seriesTXT">{{ s.number }} серия</span>
                                         </div>

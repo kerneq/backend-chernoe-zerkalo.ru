@@ -72,12 +72,16 @@ def watch(request, seasonNum, seriesNum):
     else:
         lastSeason = True
 
+    ses = seriesRus.objects.filter(obj=seasonCurrent, number=seriesNum)[0]
     return render(request, 'mirror/watch.html', {'seasonNum': int(seasonNum),
-                                                 'seriesNum': seriesNum,
+                                                 'seriesNum': int(seriesNum),
                                                  'series': allSeries,
                                                  'seasons': season.objects.all(),
                                                  'islastSeries': lastSeries,
-                                                 'islastSeason': lastSeason})
+                                                 'islastSeason': lastSeason,
+                                                 'ses': ses,
+                                                 'nextNumSeries': int(seriesNum) + 1,
+                                                 'nextNumSeason': int(seasonNum) + 1})
 
 
 def watchEngl(request, seasonNum, seriesNum):
