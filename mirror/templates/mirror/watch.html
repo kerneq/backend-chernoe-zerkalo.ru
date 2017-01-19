@@ -143,11 +143,23 @@
                                 <div class="player" id="videoplayer" style="height: auto;"></div>
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <a href="" style="color: #999;">
-                                            <div id="prev-button" class="col-md-5 col-sm-5 col-xs-5" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
-                                                &#8592;&#160;&#160; Предыдущая серия
-                                            </div>
-                                        </a>
+                                        {% if seriesNum > 1 %}
+                                            <a href="{% url 'mirror:watch' seasonNum prevSeries %}" style="color: #999;">
+                                                <div id="prev-button" class="col-md-5 col-sm-5 col-xs-5" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
+                                                    &#8592;&#160;&#160; Предыдущая серия
+                                                </div>
+                                            </a>
+                                        {% else %}
+                                            {% if seasonNum > 1 %}
+                                                <a href="{% url 'mirror:watch' prevSeason prev %}" style="color: #999;">
+                                                    <div id="prev-button" class="col-md-5 col-sm-5 col-xs-5" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
+                                                        &#8592;&#160;&#160; Предыдущий сезон
+                                                    </div>
+                                                </a>
+                                            {% else %}
+                                                <div class="col-md-5 col-sm-5 col-xs-5"></div>
+                                            {% endif %}
+                                        {% endif %}
 
                                         {% if islastSeries == False %}
                                             <a href="{% url 'mirror:watch' seasonNum nextNumSeries %}" style="color: #999;">

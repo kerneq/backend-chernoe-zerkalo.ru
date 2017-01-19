@@ -72,6 +72,13 @@ def watch(request, seasonNum, seriesNum):
     else:
         lastSeason = True
 
+    # последняя серия в предыдущем сезоне
+    if int(seasonNum) > 1:
+        prevS = season.objects.filter(number=(int(seasonNum) - 1))[0].number
+        prev = int(seriesRus.objects.filter(obj=prevS).order_by('-number')[0].number)
+    else:
+        prev = 0
+
     ses = seriesRus.objects.filter(obj=seasonCurrent, number=seriesNum)[0]
     return render(request, 'mirror/watch.html', {'seasonNum': int(seasonNum),
                                                  'seriesNum': int(seriesNum),
@@ -81,7 +88,10 @@ def watch(request, seasonNum, seriesNum):
                                                  'islastSeason': lastSeason,
                                                  'ses': ses,
                                                  'nextNumSeries': int(seriesNum) + 1,
-                                                 'nextNumSeason': int(seasonNum) + 1})
+                                                 'nextNumSeason': int(seasonNum) + 1,
+                                                 'prevSeries': int(seriesNum) - 1,
+                                                 'prevSeason': int(seasonNum) - 1,
+                                                 'prev': int(prev)})
 
 
 def watchEngl(request, seasonNum, seriesNum):
