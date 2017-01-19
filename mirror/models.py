@@ -47,3 +47,12 @@ class subscribers(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class questions(models.Model):
+    name = models.CharField(max_length=300)
+    email = models.EmailField()
+    question = models.TextField()
+
+    def __str__(self):
+        return self.name

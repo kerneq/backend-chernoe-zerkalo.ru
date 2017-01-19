@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Подписка на новые серии</title>
+    <title>Обратная связь</title>
 
     <!-- Bootstrap -->
     <link href="{% static 'mirror/css/bootstrap.css' %}" rel="stylesheet">
@@ -36,6 +36,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse sesonsNumber" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
+                <li><span id="seasons" class="hidden-xs">СЕЗОНЫ</span></li>
                   {% for key in seasons %}
                     <li><a class="hidden-xs" href="{% url 'mirror:season' key.number %}" style="margin-left:15px;">{{ key.number }}</a></li>
                     <li><a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' key.number %}" style="margin-left:15px;">{{ key.number }} сезон</a></li>
@@ -50,21 +51,30 @@
         <div class="container" style="height: 100%; display: table; width: 100%;">
             <div class="row" style="margin-bottom: 50px;">
                 <div class="col-md-6 col-md-offset-3" style="margin-top: 30px;">
-                    <H3>Подписка на новые серии</H3>
-                        Указанный вами адрес будет использован только для уведомлений о выходе новых серий сериала "Черное зеркало". (Вы всегда сможете отписаться от рассылки)
+                    <H3>Обратная связь</H3>
                     <hr />
                     {% if errors %}
                         <H4 style="color:red;">{{ errors }}</H4>
                         <hr />
                     {% endif %}
-                    <form method="POST" action="{% url 'mirror:subscribe' %}">
+                    <form method="POST" action="{% url 'mirror:callback' %}">
                         {% csrf_token %}
+                      <div class="form-group">
+                        <label>Ваше имя</label>
+                        <input type="text" name="name" class="form-control" required>
+                      </div>
                       <div class="form-group">
                         <label>E-mail</label>
                         <input type="email" name="email" class="form-control" required>
                       </div>
-                      <button type="submit" class="btn btn-primary">Подписаться</button>
+                      <div class="form-group">
+                        <label>Сообщение</label>
+                        <textarea name="text" class="form-control" rows="3" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Отправить</button>
                     </form>
+                    <hr />
+                    <H5>* также можете <a href="https://vk.com/iterate">написать мне в vk</a></H5>
                 </div>
             </div>
         </div>
@@ -73,10 +83,10 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-6">
-                    <a class="btn btn-success btn-sm" href="{% url 'mirror:subscribe' %}" role="button" style="position:relative; bottom: 9px; left: 25px;">Хочу узнавать о новых сериях</a>
+                    <a class="btn btn-success btn-sm" href="#" role="button" style="position:relative; bottom: 9px; left: 25px;">Хочу узнавать о новых сериях</a>
                   </div>
                   <div class="col-md-3 col-md-offset-1 col-xs-12 col-sm-6">
-                    <a class="btn btn-success btn-sm" href="{% url 'mirror:callback' %}" role="button" style="position:relative; bottom: 9px; left: 25px;">Обратная связь</a>
+                    <a class="btn btn-success btn-sm" href="#" role="button" style="position:relative; bottom: 9px; left: 25px;">Обратная связь</a>
                   </div>
               </div>
           </div>
