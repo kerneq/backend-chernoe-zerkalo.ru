@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Черное Зеркало смотреть онлайн {{ seasonNum }} сезон {{ seriesNum }} серию</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'mirror/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'mirror/css/watch.css' %}" rel="stylesheet">
+    <script src="{% static 'mirror/uppod-0.8.9.js' %}" type="text/javascript"></script>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?136"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <header>
+        <nav class="navbar-inverse">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span>Сезоны</span>
+              </button>
+              <a id="headTitle" class="navbar-brand" href="{% url 'mirror:index' %}">Black Mirror</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse sesonsNumber" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><span id="seasons" class="hidden-xs">СЕЗОНЫ</span></li>
+                  {% for ses in seasons %}
+                    {% if ses.number == seasonNum %}
+                        <li>
+                            <a class="hidden-xs" href="{% url 'mirror:season' ses.number %}" style="margin-left:15px;">
+                            <span id="current-watch">
+                                {{ ses.number }}
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' ses.number %}" style="margin-left:15px;">
+                                <span id="current-watch-rectangle">
+                                    {{ ses.number }} сезон
+                                </span>
+                                </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a class="hidden-xs" href="{% url 'mirror:season' ses.number %}" style="margin-left:15px;">
+                                {{ ses.number }}
+                            </a>
+                        </li>
+                        <li>
+                            <a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' ses.number %}" style="margin-left:15px;">
+                                {{ ses.number }} сезон
+                            </a>
+                        </li>
+                    {% endif %}
+                  {% endfor %}
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+      <content>
+        <div id="content" class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1" style="padding-left: 40px;
+                                                                  padding-right: 35px;">
+                        <div class="row">
+                            <div class="col-lg-9 col-md-11 col-sm-12 col-xs-12">
+                                <H1>Черное зеркало {{ seasonNum }} сезон {{ seriesNum }} серия </H1>
+                                <div id="rekomendation">
+                                    На сайте chernoe-zerkalo.ru вы можете смотреть черное зеркало 3 сезон 10 серию в озвучке Кубрик-Кубрик, а также смотреть в оригинале на английском (есть субтитры)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 30px;">
+                            <div class="col-md-11 col-lg-9">
+                                <!-- RUS -->
+                                <a href="#">
+                                    <div style="float:left;
+                                                margin-bottom: 10px;
+                                                color: #999;
+                                                border: 2px solid #636060;
+                                                width: 90px;
+                                                padding-top: 5px;
+                                                padding-bottom: 4px;
+                                                padding-left: 6px;
+                                                background-color: #545353;">
+                                        <table style="rus">
+                                            <tr>
+                                                <td style="width: 40px;">Rus</td>
+                                                <td>
+                                                    <img src="{% static 'mirror/img/home/rus.png' %}" width="35px"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </a>
+
+                                <!-- ENG -->
+                                <a href="{% url 'mirror:watchEngl' seasonNum seriesNum %}">
+                                    <div style="margin-left: 12px;
+                                                float: left;
+                                                margin-bottom: 10px;
+                                                color: #999;
+                                                border: 2px solid #636060;
+                                                width: 90px;
+                                                padding-top: 5px;
+                                                padding-bottom: 4px;
+                                                padding-left: 6px;
+                                                background-color: #413E3E;"
+                                                onmouseover="this.style.backgroundColor='#545353';" onmouseout="this.style.backgroundColor='#413E3E';">
+                                        <table style="rus">
+                                            <tr>
+                                                <td style="width: 40px;">Eng</td>
+                                                <td>
+                                                    <img src="{% static 'mirror/img/home/usa2.jpeg' %}" width="35px"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </a>
+                                <div style="clear: both;"></div>
+
+                                <!-- VIDEO -->
+                                <div class="player" id="videoplayer" style="height: auto;"></div>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <a href="#" style="color: #999;">
+                                            <div id="prev-button" class="col-md-5 col-sm-5 col-xs-5" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
+                                                &#8592;&#160;&#160; Предыдущая серия
+                                            </div>
+                                        </a>
+                                        <a href="#" style="color: #999;">
+                                            <div id="prev-button" class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2 col-xs-5 col-xs-offset-2" onmouseover="this.style.backgroundColor='#222222';" onmouseout="this.style.backgroundColor='#2D2D2D';">
+                                                Следующая серия &#160;&#160; &#8594;
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ADVERT -->
+                            <div class="col-md-1 col-lg-3 hidden-xs hidden-sm">
+                                <div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <span style="color: #999; position: relative; top: 10px; font-size: 20px;">Всплеск (The Uptick)
+                        </span>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-9 col-md-11 col-sm-12 col-xs-12">
+                                <span style="position: relative; top: 15px; color: #999;">
+                                    Финальная серия третьего сезона. Триумф Эрлиха ставит Ричарда в затруднительное положение. Видео чат Динеша набирает обороты. Лори собирается выйти из игры, возвращение Гевина в Hooli под угрозой из-за его напыщенности.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </content>
+
+      <div class="container-fluid" style="background: #dedede; height: 30px;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-5 col-lg-offset-2 col-md-5 col-md-offset-2 col-sm-10 col-xs-10">
+                      <div id="bread">
+                          <span style="position: relative; right: 60px; top: 5px;"><a href="{% url 'mirror:index' %}" style="color: #606060;">главная</a></span>
+                          <span style="float: left; font-size: 20px; position: relative; top: 3px; left: 4px; color:#606060;">/</span>
+                          <span style="position: relative; left: -45px; top: 5px;"><a href="{% url 'mirror:season' seasonNum %}" style="color: #606060;">сезон {{ seasonNum }}</a></span>
+                          <div style="clear:both; float: left;"></div>
+                          <span style="color:#606060; font-size: 20px; float: left; position: relative; left: 70px; bottom: 26px;">/</span>
+                          <span style="float: left; position: relative; bottom: 24px; left: 77px; color: #393939;">серия {{ seriesNum }}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div id="watch-series" class="container-fluid">
+          <div class="container" style="margin-bottom: 45px;">
+              <div class="row">
+                  <div style="clear: both;"></div>
+                  <div class="col-md-10 col-md-offset-1 col-sm-10 col-xs-10" style="padding-left: 40px;
+                                                              padding-right: 35px;">
+                      <H3 style="margin-bottom: 20px; margin-top: -5px;">1 сезон</H3>
+                      <div class="clear: both;"></div>
+                      <div style="position:relative; right: 15px; bottom: 20px;">
+                          {% for s in series %}
+                                <a href="hello">
+                                    <div style="background-image: url({% static ''%}/mirror/img/holder/{{s.season}}{{s.number}}.jpg);" class="icon-serie">
+                                        <div class="serie-name">
+                                            <span class="seriesTXT">{{ s.number }} серия</span>
+                                        </div>
+                                        <div class="serie-desc">
+                                            <span class="seriesTXT">{{ s.name }}</span>
+                                        </div>
+                                        <div class="serie-time">
+                                            <span class="seriesTXT">{{ s.duration }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                          {% endfor %}
+                      </div>
+                      <div style="clear: both;"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="container-fluid" style="border-top: 1px solid #DDDADA !important;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="comments-block">
+                      <span style="color: #333; font-size: 24px; position:relative; top: 20px; left: 27px;">
+                          Комментарии
+                      </span>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <footer>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-2 col-md-offset-1 col-xs-12 col-sm-6">
+                    <a class="btn btn-success btn-sm" href="{% url 'mirror:subscribe' %}" role="button" style="position:relative; bottom: 9px; left: 25px;">Хочу узнавать о новых сериях</a>
+                  </div>
+                  <div class="col-md-3 col-md-offset-1 col-xs-12 col-sm-6">
+                    <a class="btn btn-success btn-sm" href="{% url 'mirror:callback' %}" role="button" style="position:relative; bottom: 9px; left: 25px;">Обратная связь</a>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'mirror/js/bootstrap.min.js' %}"></script>
+
+    <script type="text/javascript">this.player = new Uppod({m:"video",uid:"videoplayer",file:"https://www.youtube.com/watch?v=9lLy0gUppFI&list=PLW8mAQ8rFUhKGfYf4Cd7wtgl00EtcKzkM",poster:"./logo.jpg"});</script>
+  </body>
+</html>

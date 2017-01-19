@@ -49,6 +49,36 @@ def callback(request):
                                                             'ok': 'ok'})
         except forms.ValidationError:
             return render(request, 'mirror/callback.html', {'seasons': season.objects.all(),
-                                                     'errors': 'неверно введен e-mail'})
+                                                            'errors': 'неверно введен e-mail'})
     else:
         return render(request, 'mirror/callback.html', {'seasons': season.objects.all()})
+
+
+def watch(request, seasonNum, seriesNum):
+    seasonCurrent = get_object_or_404(season, number=int(seasonNum))
+    allSeries = seriesRus.objects.filter(obj=seasonCurrent).order_by('number')
+
+    # последняя ли серия
+    max = int(seriesRus.objects.filter(obj=seasonCurrent).order_by('-number')[0].number)
+    if int(seriesNum) < max:
+        lastSeries = False
+    else:
+        lastSeries = True
+
+    # последний ли сезон
+    maxSes = int(season.objects.all().order_by('-number')[0].number)
+    if int(seasonNum) < maxSes:
+        lastSeason = False
+    else:
+        lastSeason = True
+
+    return render(request, 'mirror/watch.html', {'seasonNum': int(seasonNum),
+                                                 'seriesNum': seriesNum,
+                                                 'series': allSeries,
+                                                 'seasons': season.objects.all(),
+                                                 'islastSeries': lastSeries,
+                                                 'islastSeason': lastSeason})
+
+
+def watchEngl(request, seasonNum, seriesNum):
+    return HttpResponse("hello")
