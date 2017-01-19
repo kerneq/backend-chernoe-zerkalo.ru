@@ -29,7 +29,7 @@ def subscribe(request):
         try:
             validate_email(request.POST.get("email", ""))
             subscribers(email=request.POST["email"]).save()
-            return index(request)
+            return render(request, 'mirror/subscription.html', {'ok': 'ok', 'seasons': season.objects.all()})
         except forms.ValidationError:
             return render(request, 'mirror/subscription.html', {'errors': 'неверно введен e-mail'})
     else:
@@ -44,7 +44,8 @@ def callback(request):
             questions(name=request.POST.get("name", ""),
                       email=request.POST.get("email", ""),
                       question=request.POST.get("text", "")).save()
-            return index(request)
+            return render(request, 'mirror/callback.html', {'seasons': season.objects.all(),
+                                                            'ok': 'ok'})
         except forms.ValidationError:
             return render(request, 'mirror/callback.html', {'seasons': season.objects.all(),
                                                      'errors': 'неверно введен e-mail'})
