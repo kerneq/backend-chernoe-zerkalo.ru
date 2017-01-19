@@ -173,7 +173,7 @@
                             <div class="clear: both;"></div>
                             <div style="position:relative; right: 15px; bottom: 20px;">
                                 {% for s in value%}
-                                    <a href="hello">
+                                    <a href="{% url 'mirror:watch' key s.number %}">
                                         <div style="background-image: url({% static ''%}/mirror/img/holder/{{s.season}}{{s.number}}.jpg);" class="icon-serie">
                                             <div class="serie-name">
                                                 <span class="seriesTXT">{{ s.number }} серия</span>
