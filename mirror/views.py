@@ -29,7 +29,8 @@ def subscribe(request):
         try:
             validate_email(request.POST.get("email", ""))
             subscribers(email=request.POST["email"]).save()
-            return render(request, 'mirror/subscription.html', {'ok': 'ok', 'seasons': season.objects.all()})
+            return render(request, 'mirror/subscription.html', {'ok': 'ok',
+                                                                'seasons': season.objects.all()})
         except forms.ValidationError:
             return render(request, 'mirror/subscription.html', {'errors': 'неверно введен e-mail'})
     else:
