@@ -39,7 +39,7 @@ class seriesEng(models.Model):
     description = models.TextField(max_length=1000, default='description', blank=True)
 
     def __str__(self):
-        return self.name + " " + self.number + " series " + self.season + "season Eng"
+        return '%s %s %s %s %s %s' % (self.obj.name, " ", self.obj.season, " season ", self.obj.number, "series ENGL")
 
 
 class subscribers(models.Model):
