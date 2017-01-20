@@ -4,7 +4,7 @@ from mirror import views
 
 app_name = 'mirror'
 urlpatterns = [
-    url(r'^season/(?P<seasonNum>[0-9]+)/series/(?P<seriesNum>[0-9]+)/v/originale',
+    url(r'^season/(?P<seasonNum>[0-9]+)/series/(?P<seriesNum>[0-9]+)/v-originale',
         views.watchEngl, name='watchEngl'),
     url(r'^season/(?P<seasonNum>[0-9]+)/series/(?P<seriesNum>[0-9]+)',
         views.watch, name='watch'),

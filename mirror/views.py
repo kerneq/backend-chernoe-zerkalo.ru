@@ -1,10 +1,9 @@
 from django.core.validators import validate_email
 from django.forms import forms
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from mirror.models import season, seriesRus, subscribers, questions
+from mirror.models import season, seriesRus, subscribers, questions, seriesEng
 
 
 def index(request):
@@ -95,4 +94,41 @@ def watch(request, seasonNum, seriesNum):
 
 
 def watchEngl(request, seasonNum, seriesNum):
-    return HttpResponse("hello")
+    seasonCurrent = get_object_or_404(season, number=int(seasonNum))
+    allSeries = seriesRus.objects.filter(obj=seasonCurrent).order_by('number')
+
+    # последняя ли серия
+    max = int(seriesRus.objects.filter(obj=seasonCurrent).order_by('-number')[0].number)
+    if int(seriesNum) < max:
+        lastSeries = False
+    else:
+        lastSeries = True
+
+    # последний ли сезон
+    maxSes = int(season.objects.all().order_by('-number')[0].number)
+    if int(seasonNum) < maxSes:
+        lastSeason = False
+    else:
+        lastSeason = True
+
+    # последняя серия в предыдущем сезоне
+    if int(seasonNum) > 1:
+        prevS = season.objects.filter(number=(int(seasonNum) - 1))[0].number
+        prev = int(seriesRus.objects.filter(obj=prevS).order_by('-number')[0].number)
+    else:
+        prev = 0
+
+    rusAnalog = seriesRus.objects.filter(obj=seasonCurrent, season=int(seasonNum), number=int(seriesNum))
+    ses = seriesEng.objects.filter(obj=rusAnalog)[0]
+    return render(request, 'mirror/watchEng.html', {'seasonNum': int(seasonNum),
+                                                 'seriesNum': int(seriesNum),
+                                                 'series': allSeries,
+                                                 'seasons': season.objects.all(),
+                                                 'islastSeries': lastSeries,
+                                                 'islastSeason': lastSeason,
+                                                 'ses': ses,
+                                                 'nextNumSeries': int(seriesNum) + 1,
+                                                 'nextNumSeason': int(seasonNum) + 1,
+                                                 'prevSeries': int(seriesNum) - 1,
+                                                 'prevSeason': int(seasonNum) - 1,
+                                                 'prev': int(prev)})
