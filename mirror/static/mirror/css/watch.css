@@ -3,6 +3,25 @@
   padding: 0;
 }
 
+a, a:active, a:focus,
+button, button:focus, button:active,
+.btn, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn.focus:active, .btn.active.focus {
+    outline: medium none !important;
+}
+
+video {
+outline: medium none !important;
+}
+
+div {
+outline: medium none !important;
+}
+
+
+input::-moz-focus-inner {
+    border: 0;
+}
+
 html,
 body {
   height: 100%;
