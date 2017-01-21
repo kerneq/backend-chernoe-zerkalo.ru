@@ -351,6 +351,7 @@
 	border: solid 2px #333;
 	top: -2px;
 	text-align: center;
+	outline: medium none !important;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float {
@@ -364,6 +365,7 @@
 	margin-left: -18px;
 	text-align: center;
 	color: #111;
+	outline: medium none !important;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float-current {
@@ -372,6 +374,7 @@
 	display: block;
 	text-align: center;
 	left: 0;
+	outline: medium none !important;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float-corner {
@@ -387,6 +390,7 @@
 	border-radius: 0;
 	top: 15px;
 	left: 13px;
+	outline: medium none !important;
 }
 
 .mejs-long-video .mejs-controls .mejs-time-rail .mejs-time-float {
