@@ -81,7 +81,7 @@
                                                                   padding-right: 35px;">
                         <div class="row">
                             <div class="col-lg-9 col-md-11 col-sm-12 col-xs-12">
-                                <H1>Черное зеркало {{ seasonNum }} сезон {{ seriesNum }} серия </H1>
+                                <H1>Черное зеркало {{ seasonNum }} сезон {{ seriesNum }} серия в HD</H1>
                                 <div id="rekomendation">
                                     На сайте chernoe-zerkalo.ru вы можете смотреть черное зеркало {{ seasonNum }}
                                     сезон {{ seasonNum }} серию в озвучке Кубрик-Кубрик,
@@ -286,6 +286,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static 'mirror/js/bootstrap.min.js' %}"></script>
 
-    <script type="text/javascript">this.player = new Uppod({m:"video",uid:"videoplayer",file:"https://www.youtube.com/watch?v=9lLy0gUppFI&list=PLW8mAQ8rFUhKGfYf4Cd7wtgl00EtcKzkM",poster:"./logo.jpg"});</script>
+    <script type="text/javascript">this.player = new Uppod({m:"video",uid:"videoplayer",
+    file:"{% static '' %}mirror/video/{{ seasonNum }}/{{ seriesNum }}.mp4",
+    poster:"{% static '' %}mirror/img/holder/{{ seasonNum }}{{ seriesNum }}.jpg"});</script>
   </body>
 </html>
