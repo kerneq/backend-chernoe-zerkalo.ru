@@ -1,5 +1,6 @@
 from django.core.validators import validate_email
 from django.forms import forms
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -121,14 +122,27 @@ def watchEngl(request, seasonNum, seriesNum):
     rusAnalog = seriesRus.objects.filter(obj=seasonCurrent, season=int(seasonNum), number=int(seriesNum))
     ses = seriesEng.objects.filter(obj=rusAnalog)[0]
     return render(request, 'mirror/watchEng.html', {'seasonNum': int(seasonNum),
-                                                 'seriesNum': int(seriesNum),
-                                                 'series': allSeries,
-                                                 'seasons': season.objects.all(),
-                                                 'islastSeries': lastSeries,
-                                                 'islastSeason': lastSeason,
-                                                 'ses': ses,
-                                                 'nextNumSeries': int(seriesNum) + 1,
-                                                 'nextNumSeason': int(seasonNum) + 1,
-                                                 'prevSeries': int(seriesNum) - 1,
-                                                 'prevSeason': int(seasonNum) - 1,
-                                                 'prev': int(prev)})
+                                                    'seriesNum': int(seriesNum),
+                                                    'series': allSeries,
+                                                    'seasons': season.objects.all(),
+                                                    'islastSeries': lastSeries,
+                                                    'islastSeason': lastSeason,
+                                                    'ses': ses,
+                                                    'nextNumSeries': int(seriesNum) + 1,
+                                                    'nextNumSeason': int(seasonNum) + 1,
+                                                    'prevSeries': int(seriesNum) - 1,
+                                                    'prevSeason': int(seasonNum) - 1,
+                                                    'prev': int(prev)})
+
+
+def setCookies(request):
+    if request.method == 'GET':
+        seasonNum = request.GET['season']
+        seriesNum = request.GET['series']
+        language = request.GET['lang']
+
+        response = HttpResponse('ok')
+        response.set_cookie('season', seasonNum)
+        response.set_cookie('series', seriesNum)
+        response.set_cookie('language', language)
+    return response
