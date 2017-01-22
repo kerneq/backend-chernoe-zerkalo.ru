@@ -13,7 +13,20 @@ def index(request):
     for ses in listOfSeasons:
         listOfSeries = seriesRus.objects.filter(obj=ses).order_by('number')
         dictionary[ses.number] = listOfSeries
-    return render(request, 'mirror/index.html', {'dict': dictionary})
+
+    response = render(request, 'mirror/index.html', {'dict': dictionary})
+    try:
+        ses = str(request.COOKIES['season'])
+        ser = str(request.COOKIES['series'])
+        lang = str(request.COOKIES['language'])
+
+        response.set_cookie('season', ses)
+        response.set_cookie('series', ser)
+        response.set_cookie('language', lang)
+        response.set_cookie('beginner', 'no')
+    except KeyError:
+        response.set_cookie('beginner', 'yes')
+    return response
 
 
 def seasonView(request, num):

@@ -145,9 +145,9 @@
                                 <!-- VIDEO -->
                                 <input type="hidden" id = "season" value="{{ seasonNum }}">
                                 <input type="hidden" id = "series" value="{{ seriesNum }}">
-                                <div id="clicked" style="width:100%; max-width: 100%; margin: 0 auto; outline:none">
-                                    <video class="mejs-player" style="width: 100%; height:100%;" controls="controls" width="100%" height="100%"
-                                    preload="auto" poster="{% static '' %}mirror/img/holder/{{seasonNum}}{{seriesNum}}.jpg">
+                                <div id="clicked" style="width:100%; max-width: 100%; margin: 0 auto; outline:none;">
+                                    <video class="mejs-player" style="width: 100%; height:100%;" controls="controls" width="320" height="180"
+                                    preload="none" poster="{% static '' %}mirror/img/holder/{{seasonNum}}{{seriesNum}}.jpg">
                                         <source src="{{ MEDIA_URL}}{{ seasonNum }}/{{ seriesNum }}.mp4" type='video/mp4'>
                                     </video>
 		                        </div>
