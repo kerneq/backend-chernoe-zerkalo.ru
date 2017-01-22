@@ -69,7 +69,7 @@
               <div class="row" style="margin-top: 8px;">
                   <div class="text-center col-md-8 col-md-offset-2">
                       {% if request.COOKIES.beginner == 'no' %}
-                          {% if language == rus %}
+                          {% if request.COOKIES.language == 'rus' %}
                             <a class="btn btn-default btn-lg" href="{% url 'mirror:watch' request.COOKIES.season request.COOKIES.series %}" role="button">Продолжить просмотр</a>
                           {% else %}
                             <a class="btn btn-default btn-lg" href="{% url 'mirror:watchEngl' request.COOKIES.season request.COOKIES.series %}" role="button">Продолжить просмотр</a>
