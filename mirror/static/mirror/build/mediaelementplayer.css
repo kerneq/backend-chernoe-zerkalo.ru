@@ -705,8 +705,8 @@
 	bottom: 0;
 	left: 0;
 	text-align:center;
-	line-height: 20px;
-	font-size: 16px;
+	line-height: 34px;
+	font-size: 30px;
 	color: #fff;
 }
 
@@ -716,7 +716,7 @@
 }
 
 .mejs-captions-layer[lang=ar] {
-	font-size: 20px;
+	font-size: 30px;
 	font-weight: normal;
 }
 
