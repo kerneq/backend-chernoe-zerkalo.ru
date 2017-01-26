@@ -6,7 +6,7 @@ from django.db import models
 
 class season(models.Model):
     number = models.IntegerField()
-    description = models.TextField(max_length=500, default='some text')
+    description = models.TextField(max_length=1000, default='some text')
 
     def __str__(self):
         return '%s %s' % (self.number, " season")

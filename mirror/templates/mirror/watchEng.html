@@ -148,6 +148,9 @@
                                     preload="auto" poster="{% static '' %}mirror/img/holder/{{seasonNum}}{{seriesNum}}.jpg">
                                         <source src="{{ MEDIA_URL}}eng/{{ seasonNum }}/{{ seriesNum }}.mp4" type='video/mp4'>
                                         <track style="font-size: 40px;" src="{% static '' %}mirror/subtitles/{{ seasonNum }}/{{ seriesNum }}.srt" kind="subtitles" srclang="en" label="English">
+                                        {% if seasonNum != 2 %}
+                                            <track style="font-size: 40px;" src="{% static '' %}mirror/subtitles/{{ seasonNum }}/{{ seriesNum }}{{ seriesNum }}.srt" kind="subtitles" srclang="ru" label="Russian">
+                                        {% endif %}
                                     </video>
 		                        </div>
                                 <script>
@@ -217,7 +220,7 @@
                         <div class="row">
                             <div class="col-lg-9 col-md-11 col-sm-12 col-xs-12">
                                 <span style="position: relative; top: 15px; color: #999;">
-                                    {{ ses.obj.description }}
+                                    {{ ses.obj.description|safe }}
                                 </span>
                             </div>
                         </div>
