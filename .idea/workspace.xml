@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57ea009b-bcf1-4387-bd11-d62857ec420c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirror/templates/mirror/callback.html" afterPath="$PROJECT_DIR$/mirror/templates/mirror/callback.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirror/templates/mirror/index.html" afterPath="$PROJECT_DIR$/mirror/templates/mirror/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirror/templates/mirror/season.html" afterPath="$PROJECT_DIR$/mirror/templates/mirror/season.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirror/templates/mirror/subscription.html" afterPath="$PROJECT_DIR$/mirror/templates/mirror/subscription.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirror/templates/mirror/watch.html" afterPath="$PROJECT_DIR$/mirror/templates/mirror/watch.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mirror/templates/mirror/watchEng.html" afterPath="$PROJECT_DIR$/mirror/templates/mirror/watchEng.html" />
     </list>
     <ignored path="mr.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,38 +28,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="watchEng.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/watchEng.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="222" column="63" selection-start-line="222" selection-start-column="58" selection-end-line="222" selection-end-column="63" />
+            <state relative-caret-position="72">
+              <caret line="85" column="79" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#video#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#track#0;n#video#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#track#1;n#video#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#1;n#H1#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="season.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/season.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="85" column="54" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="watch.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/watch.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="220" column="59" selection-start-line="220" selection-start-column="39" selection-end-line="220" selection-end-column="59" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,20 +62,20 @@
         <option value="$PROJECT_DIR$/mr/apps.py" />
         <option value="$PROJECT_DIR$/mirror/templates/mirror/seasons.html" />
         <option value="$PROJECT_DIR$/mirror/admin.py" />
-        <option value="$PROJECT_DIR$/mirror/templates/mirror/subscription.html" />
-        <option value="$PROJECT_DIR$/mirror/templates/mirror/callback.html" />
         <option value="$PROJECT_DIR$/mirror/static/mirror/css/style.css" />
         <option value="$PROJECT_DIR$/mr/urls.py" />
         <option value="$PROJECT_DIR$/mr/settings.py" />
         <option value="$PROJECT_DIR$/mirror/urls.py" />
         <option value="$PROJECT_DIR$/mirror/views.py" />
-        <option value="$PROJECT_DIR$/mirror/templates/mirror/index.html" />
-        <option value="$PROJECT_DIR$/mirror/templates/mirror/watch.html" />
         <option value="$PROJECT_DIR$/mirror/static/mirror/css/watch.css" />
         <option value="$PROJECT_DIR$/mirror/static/mirror/build/mediaelementplayer.css" />
-        <option value="$PROJECT_DIR$/mirror/templates/mirror/watchEng.html" />
-        <option value="$PROJECT_DIR$/mirror/templates/mirror/season.html" />
         <option value="$PROJECT_DIR$/mirror/models.py" />
+        <option value="$PROJECT_DIR$/mirror/templates/mirror/season.html" />
+        <option value="$PROJECT_DIR$/mirror/templates/mirror/watch.html" />
+        <option value="$PROJECT_DIR$/mirror/templates/mirror/watchEng.html" />
+        <option value="$PROJECT_DIR$/mirror/templates/mirror/subscription.html" />
+        <option value="$PROJECT_DIR$/mirror/templates/mirror/callback.html" />
+        <option value="$PROJECT_DIR$/mirror/templates/mirror/index.html" />
       </list>
     </option>
   </component>
@@ -126,6 +111,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,7 +186,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,15 +352,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="24" width="1307" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26401868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26401868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18730651" sideWeight="0.50623053" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27399382" sideWeight="0.49376947" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27399382" sideWeight="0.49376947" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -423,13 +408,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mirror/static/mirror/build/mediaelementplayer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12636">
-          <caret line="702" column="22" selection-start-line="702" selection-start-column="22" selection-end-line="702" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/watchEng.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -688,20 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/callback.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="96" column="15" selection-start-line="96" selection-start-column="15" selection-end-line="96" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/subscription.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="41" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mirror/static/mirror/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -730,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-216">
-          <caret line="69" column="68" selection-start-line="69" selection-start-column="68" selection-end-line="69" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mirror/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -758,18 +715,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/watch.html">
+    <entry file="file://$PROJECT_DIR$/mirror/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="220" column="59" selection-start-line="220" selection-start-column="39" selection-end-line="220" selection-end-column="59" />
+        <state relative-caret-position="144">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mirror/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/callback.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/subscription.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/watchEng.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="222" column="63" selection-start-line="222" selection-start-column="58" selection-end-line="222" selection-end-column="63" />
+        <state relative-caret-position="36">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#content#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -780,19 +760,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mirror/models.py">
+    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/season.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        <state relative-caret-position="36">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/season.html">
+    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/watch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="85" column="54" selection-start-line="85" selection-start-column="54" selection-end-line="85" selection-end-column="54" />
+        <state relative-caret-position="36">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mirror/templates/mirror/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="85" column="79" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#H1#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
