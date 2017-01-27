@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
-    <meta name="description" content="Подписаться на рассылку новых серий сериала Черное Зеркало">
+    <meta name="description" content="">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Подписка на новые серии</title>
+    <title>404 Страница не найдена</title>
 
     <link rel="shortcut icon" href="{% static 'mirror/img/icon.ico' %}" type="image/x-icon">
     <!-- Bootstrap -->
@@ -40,10 +40,14 @@
             <div class="collapse navbar-collapse sesonsNumber" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
                   <li><span id="seasons" class="hidden-xs">СЕЗОНЫ</span></li>
-                  {% for key in seasons %}
-                    <li><a class="hidden-xs" href="{% url 'mirror:season' key.number %}" style="margin-left:15px;">{{ key.number }}</a></li>
-                    <li><a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' key.number %}" style="margin-left:15px;">{{ key.number }} сезон</a></li>
-                  {% endfor %}
+                  <li><a class="hidden-xs" href="{% url 'mirror:season' 1 %}" style="margin-left:15px;">1</a></li>
+                  <li><a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' 1 %}" style="margin-left:15px;">1 сезон</a></li>
+
+                  <li><a class="hidden-xs" href="{% url 'mirror:season' 2 %}" style="margin-left:15px;">2</a></li>
+                  <li><a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' 2 %}" style="margin-left:15px;">2 сезон</a></li>
+
+                  <li><a class="hidden-xs" href="{% url 'mirror:season' 3 %}" style="margin-left:15px;">3</a></li>
+                  <li><a class="hidden-md hidden-lg hidden-sm" href="{% url 'mirror:season' 3 %}" style="margin-left:15px;">3 сезон</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
@@ -53,26 +57,14 @@
       <div style="height: 100%; display: table; width: 100%;">
         <div class="container" style="height: 100%; display: table; width: 100%;">
             <div class="row" style="margin-bottom: 50px;">
-                <div class="col-md-6 col-md-offset-3" style="margin-top: 30px;">
-                    {% if ok %}
-                        <H3 style="color: green;">Вы успешно подписаны!</H3>
-                        <hr />
-                    {% endif %}
-                    <H3>Подписка на новые серии</H3>
-                        Указанный вами адрес будет использован только для уведомлений о выходе новых серий сериала "Черное зеркало". (Вы всегда сможете отписаться от рассылки)
-                    <hr />
-                    {% if errors %}
-                        <H4 style="color:red;">{{ errors }}</H4>
-                        <hr />
-                    {% endif %}
-                    <form method="POST" action="{% url 'mirror:subscribe' %}">
-                        {% csrf_token %}
-                      <div class="form-group">
-                        <label>E-mail</label>
-                        <input type="email" name="email" class="form-control" required>
-                      </div>
-                      <button type="submit" class="btn btn-primary">Подписаться</button>
-                    </form>
+                <div class="col-md-6 col-md-offset-3" style="margin-top: 10px;">
+                    <H1>Ничоси! Страница не найдена</H1>
+                    <H3 class="hidden-xs">
+                        <a style="color: #929090;" href="{% url 'mirror:index' %}">перейти на главную?</a>
+                        &nbsp;&nbsp;
+                        <a style="color: #929090;" href="{% url 'mirror:callback' %}">отругать программиста?</a>
+                    </H3>
+                    <img style="position: center" src="{% static 'mirror/img/404.gif' %}" />
                 </div>
             </div>
         </div>
