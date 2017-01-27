@@ -1,0 +1,17 @@
+User-Agent: Yandex
+Disallow: /admin
+Disallow: /static
+Disallow: /media
+Host: chernoe-zerkalo.ru
+
+
+User-Agent: Googlebot
+Disallow: /admin
+Disallow: /static
+Disallow: /media
+
+
+User-Agent: *
+Disallow: /admin
+Disallow: /static
+Disallow: /media
