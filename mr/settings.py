@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3l@!d9lp)f@1$85)n32*8vo+z_o4v%n9fml$jx93$_hl_j)yzt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -113,11 +113,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-# DEBUG = False
-# TEMPLATE_DEBUG = DEBUG
-# ALLOWED_HOSTS = [
-#    "*"
-# ]
+TEMPLATE_DEBUG = DEBUG
+ALLOWED_HOSTS = [
+    "*"
+]
 
 
 # Static files (CSS, JavaScript, Images)
