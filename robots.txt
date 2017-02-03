@@ -1,17 +1,21 @@
 User-Agent: Yandex
-Disallow: /admin
-Disallow: /static
-Disallow: /media
-Host: chernoe-zerkalo.ru
-
+Allow: /
+Disallow: /admin/
+Disallow: /static/
+Disallow: /media/
+Host: www.chernoe-zerkalo.ru
+sitemap: http://chernoe-zerkalo.ru/sitemap.xml
 
 User-Agent: Googlebot
-Disallow: /admin
-Disallow: /static
-Disallow: /media
-
+Allow: /
+Disallow: /admin/
+Disallow: /static/
+Disallow: /media/
+sitemap: http://chernoe-zerkalo.ru/sitemap.xml
 
 User-Agent: *
-Disallow: /admin
-Disallow: /static
-Disallow: /media
+Allow: /
+Disallow: /admin/
+Disallow: /static/
+Disallow: /media/
+sitemap: http://chernoe-zerkalo.ru/sitemap.xml
