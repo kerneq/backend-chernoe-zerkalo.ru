@@ -1,3 +1,4 @@
+import datetime
 from django.core.validators import validate_email
 from django.forms import forms
 from django.http import HttpResponse
@@ -20,12 +21,12 @@ def index(request):
         ser = str(request.COOKIES['series'])
         lang = str(request.COOKIES['language'])
 
-        response.set_cookie('season', ses)
-        response.set_cookie('series', ser)
-        response.set_cookie('language', lang)
-        response.set_cookie('beginner', 'no')
+        response.set_cookie('season', ses, expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
+        response.set_cookie('series', ser, expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
+        response.set_cookie('language', lang, expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
+        response.set_cookie('beginner', 'no', expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
     except KeyError:
-        response.set_cookie('beginner', 'yes')
+        response.set_cookie('beginner', 'yes', expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
     return response
 
 
@@ -155,7 +156,7 @@ def setCookies(request):
         language = request.GET['lang']
 
         response = HttpResponse('ok')
-        response.set_cookie('season', seasonNum)
-        response.set_cookie('series', seriesNum)
-        response.set_cookie('language', language)
+        response.set_cookie('season', seasonNum, expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
+        response.set_cookie('series', seriesNum, expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
+        response.set_cookie('language', language, expires=(datetime.datetime.now() + datetime.timedelta(days=60)))
     return response
