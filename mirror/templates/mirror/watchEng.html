@@ -20,6 +20,8 @@
     <script src="{% static 'mirror/build/jquery.js' %}"></script>
     <script src="{% static 'mirror/build/mediaelement-and-player.min.js' %}"></script>
     <script src="{% static 'mirror/build/custom.js' %}"></script>
+      
+    <script src="https://vk.com/js/api/openapi.js?139" type="text/javascript"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -28,7 +30,12 @@
     <![endif]-->
   </head>
   <body>
-
+    <script type="text/javascript">
+        VK.init({
+        apiId: 5856811,
+        onlyWidgets: true
+        });
+    </script>
     <header>
         <nav class="navbar-inverse">
           <div class="container">
@@ -291,9 +298,10 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1" id="comments-block">
-                      <span style="color: #333; font-size: 24px; position:relative; top: 20px; left: 27px;">
-                          Комментарии
-                      </span>
+                        <div id="vk_comments"></div>
+                        <script type="text/javascript">
+                          VK.Widgets.Comments('vk_comments');
+                        </script>
                   </div>
               </div>
           </div>
